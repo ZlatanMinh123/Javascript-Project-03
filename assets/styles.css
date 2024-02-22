@@ -38,7 +38,7 @@ html {
 
 .dashboard {
     padding: 16px 16px 14px;
-    background-color: #fff;
+    background-color: #352a48;
     position: fixed;
     top: 0;
     width: 100%;
@@ -53,12 +53,12 @@ header {
 }
 
 header h4 {
-    color: var(--primary-color);
+    color: #fff;
     font-size: 12px;
 }
 
 header h2 {
-    color: var(--text-color);
+    color: #fff;
     font-size: 20px;
 }
 
@@ -87,7 +87,7 @@ header h2 {
 }
 
 .control .btn {
-    color: #666;
+    color: #fff;
     padding: 18px;
     font-size: 18px;
 }
@@ -106,6 +106,13 @@ header h2 {
     align-items: center;
     justify-content: center;
     background-color: var(--primary-color);
+}
+
+.control .btn-toggle-play:hover {
+    cursor: pointer;
+    background-color: bisque;
+    color: var(--primary-color);
+    border: 1px var(--primary-color) solid;
 }
 
 .progress {
@@ -143,7 +150,7 @@ header h2 {
     display: flex;
     align-items: center;
     margin-bottom: 12px;
-    background-color: #fff;
+    background-color: #352a48;
     padding: 8px 16px;
     border-radius: 5px;
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
@@ -178,12 +185,12 @@ header h2 {
 
 .song .title {
     font-size: 18px;
-    color: var(--text-color);
+    color: #fff;
 }
 
 .song .author {
     font-size: 12px;
-    color: #999;
+    color: #9b96a0;
 }
 
 .song .option {

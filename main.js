@@ -1,13 +1,21 @@
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
+const player = $(".player");
+const heading = $("header h2");
+const cdThumb = $(".cd-thumb");
+const audio = $("#audio");
+const playBtn = $(".btn-toggle-play");
+const progress = $(".progress");
+
 const app = {
     currentIndex: 0,
+    isPlaying: false,
     songs: [
         {
             name: "Beautiful",
             singer: "Eminem",
-            path: ".assets/songs/Beautiful.mp3",
+            path: "/assets/songs/Beautiful.mp3",
             image: "./assets/images/Beautiful.jpg",
         },
         {
@@ -70,8 +78,11 @@ const app = {
     },
 
     handleEvents: function () {
+        const _this = this;
         const cd = $(".cd");
         const cdWidth = cd.offsetWidth;
+
+        //  Xử lý phóng to / thu nhỏ CD
         document.onscroll = function () {
             const scrollTop =
                 window.scrollY || document.documentElement.scrollTop;
@@ -79,13 +90,40 @@ const app = {
             cd.style.width = newCdWidth > 0 ? `${newCdWidth}px` : 0;
             cd.style.opacity = newCdWidth / cdWidth;
         };
+
+        //  Xử lý khi click play
+        playBtn.onclick = function () {
+            if (_this.isPlaying) {
+                audio.pause();
+            } else {
+                audio.play();
+            }
+        };
+
+        // Khi song được play
+        audio.onplay = function () {
+            _this.isPlaying = true;
+            player.classList.add("playing");
+        };
+
+        // Khi song bị pause
+        audio.onpause = function () {
+            _this.isPlaying = false;
+            player.classList.remove("playing");
+        };
+
+        // Khi tiến độ bài hát thay đổi
+        audio.ontimeupdate = function () {
+            if (audio.duration) {
+                const progressPercent = Math.floor(
+                    (audio.currentTime / audio.duration) * 100
+                );
+                progress.value = progressPercent;
+            }
+        };
     },
 
     loadCurrentSong: function () {
-        const heading = $("header h2");
-        const cdThumb = $(".cd-thumb");
-        const audio = $("#audio");
-
         heading.textContent = this.currentSong.name;
         cdThumb.style.backgroundImage = `url('${this.currentSong.image}')`;
         audio.src = this.currentSong.path;
