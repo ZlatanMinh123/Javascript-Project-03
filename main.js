@@ -16,37 +16,37 @@ const app = {
             name: "Beautiful",
             singer: "Eminem",
             path: "/assets/songs/Beautiful.mp3",
-            image: "./assets/images/Beautiful.jpg",
+            image: "/assets/images/Beautiful.jpg",
         },
         {
             name: "Lose Yourself",
             singer: "Eminem",
-            path: ".assets/songs/Lose Yourself.mp3",
-            image: "./assets/images/Lose-Yourself.jpg",
+            path: "/assets/songs/Lose Yourself.mp3",
+            image: "/assets/images/Lose-Yourself.jpg",
         },
         {
             name: "Mockingbird",
             singer: "Eminem",
-            path: ".assets/songs/Mockingbird.mp3",
-            image: "./assets/images/MorkingBird.jpg",
+            path: "/assets/songs/Mockingbird.mp3",
+            image: "/assets/images/MorkingBird.jpg",
         },
         {
             name: "Not Afraid",
             singer: "Eminem",
-            path: ".assets/songs/Not Afraid.mp3",
-            image: "./assets/images/Not affair.jpg",
+            path: "/assets/songs/Not Afraid.mp3",
+            image: "/assets/images/Not affair.jpg",
         },
         {
             name: "Till I Collapse",
             singer: "Eminem",
-            path: ".assets/songs/Till I Collapse.mp3",
-            image: "./assets/images/Till I Collapse.jpg",
+            path: "/assets/songs/Till I Collapse.mp3",
+            image: "/assets/images/Till I Collapse.jpg",
         },
         {
             name: "Sing For The Moment",
             singer: "Eminem",
-            path: ".assets/songs/Sing For The Moment.mp3",
-            image: "./assets/images/Sing For The Moment.jpg",
+            path: "/assets/songs/Sing For The Moment.mp3",
+            image: "/assets/images/Sing For The Moment.jpg",
         },
     ],
     render: function () {
@@ -120,6 +120,12 @@ const app = {
                 );
                 progress.value = progressPercent;
             }
+        };
+
+        // Xử lý khi tua song
+        progress.oninput = function (e) {
+            const seekTime = (e.target.value * audio.duration) / 100;
+            audio.currentTime = seekTime;
         };
     },
 
