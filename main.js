@@ -15,38 +15,38 @@ const app = {
         {
             name: "Beautiful",
             singer: "Eminem",
-            path: "/assets/songs/Beautiful.mp3",
-            image: "/assets/images/Beautiful.jpg",
+            path: "assets/songs/Beautiful.mp3",
+            image: "assets/images/Beautiful.jpg",
         },
         {
             name: "Lose Yourself",
             singer: "Eminem",
-            path: "/assets/songs/Lose Yourself.mp3",
-            image: "/assets/images/Lose-Yourself.jpg",
+            path: "assets/songs/Lose Yourself.mp3",
+            image: "assets/images/Lose-Yourself.jpg",
         },
         {
             name: "Mockingbird",
             singer: "Eminem",
-            path: "/assets/songs/Mockingbird.mp3",
-            image: "/assets/images/MorkingBird.jpg",
+            path: "assets/songs/Mockingbird.mp3",
+            image: "assets/images/MorkingBird.jpg",
         },
         {
             name: "Not Afraid",
             singer: "Eminem",
-            path: "/assets/songs/Not Afraid.mp3",
-            image: "/assets/images/Not affair.jpg",
+            path: "assets/songs/Not Afraid.mp3",
+            image: "assets/images/Not affair.jpg",
         },
         {
             name: "Till I Collapse",
             singer: "Eminem",
-            path: "/assets/songs/Till I Collapse.mp3",
-            image: "/assets/images/Till I Collapse.jpg",
+            path: "assets/songs/Till I Collapse.mp3",
+            image: "assets/images/Till I Collapse.jpg",
         },
         {
             name: "Sing For The Moment",
             singer: "Eminem",
-            path: "/assets/songs/Sing For The Moment.mp3",
-            image: "/assets/images/Sing For The Moment.jpg",
+            path: "assets/songs/Sing For The Moment.mp3",
+            image: "assets/images/Sing For The Moment.jpg",
         },
     ],
     render: function () {
@@ -92,7 +92,7 @@ const app = {
         );
 
         cdThumbAnimate.pause();
-        console.log(cdThumbAnimate)
+        console.log(cdThumbAnimate);
 
         //  Xử lý phóng to / thu nhỏ CD
         document.onscroll = function () {
@@ -116,14 +116,14 @@ const app = {
         audio.onplay = function () {
             _this.isPlaying = true;
             player.classList.add("playing");
-            cdThumbAnimate.play()
+            cdThumbAnimate.play();
         };
 
         // Khi song bị pause
         audio.onpause = function () {
             _this.isPlaying = false;
             player.classList.remove("playing");
-            cdThumbAnimate.pause()
+            cdThumbAnimate.pause();
         };
 
         // Khi tiến độ bài hát thay đổi
