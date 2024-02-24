@@ -37,6 +37,7 @@ html {
 }
 
 .dashboard {
+    border-radius: 30px;
     padding: 16px 16px 14px;
     background-color: #352a48;
     position: fixed;
@@ -90,6 +91,11 @@ header h2 {
     color: #fff;
     padding: 18px;
     font-size: 18px;
+}
+
+.control .btn:hover {
+    cursor: pointer;
+    color: var(--primary-color);
 }
 
 .control .btn.active {
