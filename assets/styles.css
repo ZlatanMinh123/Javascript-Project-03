@@ -37,7 +37,7 @@ html {
 }
 
 .dashboard {
-    border-radius: 30px;
+    border-radius: 0 0 30px 30px;
     padding: 16px 16px 14px;
     background-color: #352a48;
     position: fixed;
