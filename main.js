@@ -56,10 +56,12 @@ const app = {
         },
     ],
     render: function () {
-        const htmls = this.songs.map((song) => {
+        const htmls = this.songs.map((song, index) => {
             return `
-            <div class="song">
-                <div class="thumb" style="background-image: url('${song.image}')">
+            <div class="song ${index === this.currentIndex ? "active" : ""}">
+                <div class="thumb" style="background-image: url('${
+                    song.image
+                }')">
                 </div>
                 <div class="body">
                     <h3 class="title">${song.name}</h3>
@@ -154,7 +156,9 @@ const app = {
             } else {
                 _this.nextSong();
             }
+            _this.render();
             audio.play();
+            _this.scrollToActiveSong();
         };
 
         // Khi prev song
@@ -164,7 +168,9 @@ const app = {
             } else {
                 _this.prevSong();
             }
+            _this.render();
             audio.play();
+            _this.scrollToActiveSong();
         };
 
         // Xử lý bật / tắt random song
@@ -187,6 +193,15 @@ const app = {
                 nextBtn.click();
             }
         };
+    },
+
+    scrollToActiveSong: function () {
+        setTimeout(() => {
+            $(".song.active").scrollIntoView({
+                behavior: "smooth",
+                block: this.currentIndex <= 2 ? "center" : "nearest",
+            });
+        }, 300);
     },
 
     loadCurrentSong: function () {
